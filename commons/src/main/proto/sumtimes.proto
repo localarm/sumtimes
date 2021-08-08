@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package commons;
+option java_package = "com.pavel.sumtimes.commons";
+message Sumtime{
+  message Value {
+    int64 value = 1;
+  }
+
+  Value value = 1;
+}

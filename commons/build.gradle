@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'com.google.protobuf'
+}
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java
+    compile group: 'com.google.protobuf', name: 'protobuf-java', version: '3.12.2'
+    compile group: 'org.apache.kafka', name: 'kafka-clients', version: '2.5.0'
+    // https://mvnrepository.com/artifact/org.springframework/spring-context
+    compile group: 'org.springframework', name: 'spring-context', version: '5.2.8.RELEASE'
+    // https://mvnrepository.com/artifact/org.springframework/spring-jdbc
+    compile group: 'org.springframework', name: 'spring-jdbc', version: '5.2.8.RELEASE'
+    // https://mvnrepository.com/artifact/org.springframework/spring-test
+    testCompile group: 'org.springframework', name: 'spring-test', version: '5.2.8.RELEASE'
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.6.2'
+    // https://mvnrepository.com/artifact/com.h2database/h2
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.2")
+    testCompile group: 'com.h2database', name: 'h2', version: '1.4.200'
+
+}
+
+protobuf {
+    generatedFilesBaseDir = "$projectDir/src"
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.0.0'
+    }
+}
